@@ -1,0 +1,43 @@
+#mv-table {
+    font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: #1a1a1a;
+    text-align: left;
+    border: 1px solid;
+    border-radius: 25px;
+    //border-color: white;
+    border-collapse:collapse;
+    width: 95%;
+    margin-top: 5rem;
+}
+#mv-table td, #mv-table th {
+    border: 1px solid #0d0d0d;
+    color: white;
+}
+
+#mv-table tr:nth-child(even){
+    background-color: black;
+}
+#mv-table tr:nth-child(odd) {
+    background-color: #0d0d0d;
+}
+
+#mv-table tr {
+    transition-duration: 0.15s;
+}
+
+#mv-table tr:hover {
+    background-color: #212121;
+}
+
+#mv-table td {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+#mv-table th {
+    padding-top:12px;
+    padding-bottom:12px;
+    text-align: left;
+    background-color: #240023;
+    color: white;
+}

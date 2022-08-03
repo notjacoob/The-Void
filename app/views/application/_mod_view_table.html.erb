@@ -1,0 +1,16 @@
+<div id="grid">
+<table id="mv-table">
+    <tr>
+        <th>View</th>
+        <th>Content</th>
+        <th>Likes</th>
+        <th>Views</th>
+        <th>Actions</th>
+    </tr>
+    <% @posts.each do |p| %>
+        <tr>
+            <%= render 'mod_view_post', post: p %>
+        </tr>
+    <% end %>
+</table>
+</div>

@@ -1,0 +1,15 @@
+<td>
+    <%= button_to "View",  { action: :view_post, controller: :app, id: post.id }, {method: :get, class: 'nav-home-btn', id: 'nav-view-btn' }%>
+</td>
+<td>
+    <%= FirstFive(post.content) %>
+</td>
+<td>
+    <%= post.likes.count %>
+</td>
+<td>
+    <%= post.views %>
+</td>
+<td>
+    <%= render 'admin_bar', user: post.user, post: post, links: false, modview: true %>
+</td>

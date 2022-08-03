@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  content: MyString
+  user: MyString
+  likes: 1
+  date: 2022-07-27 23:33:14
+
+two:
+  content: MyString
+  user: MyString
+  likes: 1
+  date: 2022-07-27 23:33:14

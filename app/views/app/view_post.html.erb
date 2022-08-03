@@ -1,0 +1,21 @@
+<div id="content">
+<div id='navbar'>
+    <%= render 'navbar' %>
+    <% if HasUserLiked() %>
+        <%= link_to image_tag("like-icon.png", {id: "nav-home-btn-img"}), { action: :like_post, :id => @post.id },  {method: :post, disabled: HasUserLiked(), class: "nav-home-btn", style: "background-color:#344feb;", title: "#{@post.likes.count} likes"} %>
+    <% else %>
+        <%= link_to image_tag("like-icon.png", {id: "nav-home-btn-img"}), { action: :like_post, :id => @post.id },  {method: :post, disabled: HasUserLiked(), class: "nav-home-btn", title: "#{@post.likes.count} likes"} %>
+    <% end %>
+    <%= link_to image_tag("arrow-r.png", {id: "nav-home-btn-img"}), { action: :find_post }, {method: :get, class:"nav-home-btn", title: "Next post"}%>
+    <% if @user.admin %>
+        <%= render 'admin_bar', user: @user, post: @post, links: false, modview: false %>
+    <% end %>
+</div>
+<div id="grid">
+    <div id="post">
+        <h1 id="post-content"><%= @post.content.html_safe %></h1>
+    </div>
+</div>
+</div>
+
+

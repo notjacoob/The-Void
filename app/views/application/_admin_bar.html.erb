@@ -1,0 +1,13 @@
+<% if !links %>
+    <%= link_to image_tag("hammer-icon.png", {id: "nav-home-btn-img"}), { action: :ban_post, controller: :moderation, :hash => user.hash }, { method: :post, disabled: user.banned, class: 'nav-home-btn', title: "Ban user" } %>
+    <%= link_to image_tag("no-icon.webp", {id: "nav-home-btn-img"}), {action: :delete_post_post, controller: :moderation, :id => post.id, :modview => modview }, {method: :post, class: "nav-home-btn", title: "Delete post"} %>
+    <% if post.held %>
+        <%= link_to image_tag("exclamation-icon.png", {id: "nav-home-btn-img"}), { action: :hold_post_post, controller: :moderation, :id => post.id }, {method: :post, class: "nav-home-btn", style: "background-color:red;", title: "Approve review"}%>
+    <% else %>
+        <%= link_to image_tag("exclamation-icon.png", {id: "nav-home-btn-img"}), { action: :hold_post_post, controller: :moderation, :id => post.id }, {method: :post, class: "nav-home-btn", title: "Hold for review"}%>
+    <% end %>
+<% else %>
+    <%= link_to "Ban", { action: :ban_post, controller: :moderation, :hash => user.hash }, method: :post, disabled: user.banned %> 
+    <%= link_to "Delete", {action: :delete_post_post, controller: :moderation, :id => post.id, :modview => modview }, method: :post %> 
+    <%= link_to "Hold", { action: :hold_post_post, controller: :moderation, :id => post.id }, method: :post%>
+<% end %>

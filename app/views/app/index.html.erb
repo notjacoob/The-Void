@@ -1,0 +1,7 @@
+<div id="navbar">
+    <%= render 'navbar' %>
+</div>
+<div id="nav-buttons">
+    <%= button_to "Feed the void", { action: "create_post"}, { method: :get, class: "homepage-button", id: "f-button" }%>
+    <%= button_to "Search the void", { action: "find_post" }, { method: :get, class: "homepage-button" }%>
+</div>

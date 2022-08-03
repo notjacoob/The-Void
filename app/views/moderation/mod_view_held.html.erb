@@ -1,0 +1,7 @@
+<div id="navbar">
+    <%= render 'navbar' %>
+    <%= button_to "All", { action: :mod_view, controller: :moderation }, {method: :get, class: 'nav-home-btn nav-home-btn-text', id: 'nav-view-btn'} %>
+    <%= button_to "Held", { action: :mod_view_held, controller: :moderation }, {method: :get, class: 'nav-home-btn nav-home-btn-text', id: 'nav-view-btn'} %>
+</div>
+
+<%= render 'mod_view_table', posts: @posts %>
