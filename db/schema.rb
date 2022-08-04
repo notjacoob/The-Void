@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 2022_08_01_063509) do
   enable_extension "plpgsql"
 
   create_table "likes", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "post_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "post_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["post_id"], name: "index_likes_on_post_id"
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2022_08_01_063509) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "views"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.boolean "held", default: false
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2022_08_01_063509) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "ip"
-    t.datetime "last_post", default: "2022-07-31 03:01:25"
+    t.datetime "last_post", default: "2022-08-04 00:32:06"
   end
 
   add_foreign_key "likes", "posts"

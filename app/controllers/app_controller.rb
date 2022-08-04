@@ -59,8 +59,8 @@ class AppController < ApplicationController
   end
   def create_post_post
     @user = User.where(:hash => cookies[:hash]).first
-      if (@user.admin && params[:mod_override]) || (DateTime.now.to_i - @user.last_post.to_i >= 3600)
-        if (@user.admin && params[:mod_override]) || params[:content].split.size > 5
+      if (@user.admin && params[:mod_override] == 1) || (DateTime.now.to_i - @user.last_post.to_i >= 60)
+        if (@user.admin && params[:mod_override] == 1) || params[:content].split.size > 5
           # do profanity check here (holy any slur, 25%+ profanity density)
           @post = Post.create(content: CleanText(sanitize(params[:content])), user: @user, views: 0)
           @user.last_post = DateTime.now
@@ -105,6 +105,9 @@ class AppController < ApplicationController
     end
   end
   def banned
+    if !@user.first.banned
+      redirect_to :no_content
+    end
   end
   def greater_5
   end
