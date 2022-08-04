@@ -86,7 +86,7 @@ class AppController < ApplicationController
       else
         redirect_to action: :no_content
       end
-    rescue err
+    rescue
       redirect_to action: :no_content
     end
   end
