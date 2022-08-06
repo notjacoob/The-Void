@@ -152,6 +152,12 @@
     align-items: center;
     margin-top: 2em;
     margin-bottom: 2em;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+#post::-webkit-scrollbar {
+  display: none;
 }
 
 #post-content {
