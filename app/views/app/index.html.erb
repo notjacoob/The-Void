@@ -1,3 +1,5 @@
+<%= javascript_pack_tag 'index' %>
+
 <div id="navbar">
     <%= render 'navbar' %>
 </div>
@@ -5,3 +7,8 @@
     <%= button_to "Create post", { action: "create_post"}, { method: :get, class: "homepage-button", id: "f-button" }%>
     <%= button_to "Search for post", { action: "find_post" }, { method: :get, class: "homepage-button" }%>
 </div>
+
+<button id="disclaimer">
+</button>
+
+<p id="popup">heyyyyyyyyyyyyyyyyyyyy</p>

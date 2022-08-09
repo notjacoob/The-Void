@@ -1,8 +1,4 @@
+document.addEventListener("turbolinks:load", () => {
 
-$(document).ready(() => {
-    $('#disclaimer').hover(() => {
-        $('#popup').show();
-    }, () => {
-        $("#popup").hide();
-    });
-});
+})
+
