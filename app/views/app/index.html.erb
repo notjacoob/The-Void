@@ -7,3 +7,12 @@
     <%= button_to "Create post", { action: "create_post"}, { method: :get, class: "homepage-button", id: "f-button" }%>
     <%= button_to "Search for post", { action: "find_post" }, { method: :get, class: "homepage-button" }%>
 </div>
+<% if cookies["cookiesAllowed"] != "true" %>
+    <div id="info-buttons">
+        <div id="cookies-popup-box">
+            <p id="cookies-popup">This site uses cookies to improve your experience.</p>
+            <%= image_tag("white-triangle.png", {id: "cookies-popup-img"}) %>
+        </div>
+        <%= link_to image_tag("cookies-icon.png", {id: "nav-home-btn-img"}), {}, {id: "cookies-disclaimer", class: "nav-home-btn", title: "Click to agree"}%>
+    </div>
+<% end %>

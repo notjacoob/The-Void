@@ -65,12 +65,48 @@
   white-space: nowrap;
 }
 
-#disclaimer {
-  margin-top: 15vw;
-}
-
 #popup {
   color: white;
+}
+
+#info-buttons {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-bottom: 0.3em;
+  margin-right: 0.3em;
+}
+
+#cookies-popup-img {
+  height: 1.3em;
+  width: 1.3em;
+  position: relative;
+  padding-right: 1.1em;
+}
+
+#cookies-popup {
+  color: black;
+  padding-left: 0.5em;
+  font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+  min-width: 20vw;
+}
+
+#cookies-popup-box {
+  transition: opacity 150ms;
+  background-color: #F5F5F5;
+  border-radius: 25px;
+  width: 25em;
+  height: 1.5em;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+#info-buttons {
+  margin-top: 15vw;
 }
 
 .nav-home-btn:active {
