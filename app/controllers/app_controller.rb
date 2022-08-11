@@ -12,13 +12,13 @@ class AppController < ApplicationController
       cookies.permanent[:first_visit] = 1
       @first_visit = true
     else
-      if !cookies[:fisrt_session].blank?
+      unless cookies[:first_session].blank?
         @first_visit = true
       end
     end
     @user = User.where(:ip => request.remote_ip)
     if @first_visit || !@user.any?
-      if !@user.any?
+      unless @user.any?
         @hash = SecureRandom.hex
         suppress(StandardError) do
           @user = User.create(hash: @hash, ip: request.remote_ip, admin: false, banned: false)
@@ -105,7 +105,7 @@ class AppController < ApplicationController
     end
   end
   def banned
-    if !@user.first.banned
+    unless @user.first.banned
       redirect_to :no_content
     end
   end

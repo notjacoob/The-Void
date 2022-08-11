@@ -3,7 +3,7 @@ module AppHelper
         liked = false
         user = User.where(:hash => cookies[:hash])
         post = Post.find(params[:id])
-        if !user.any?
+        unless user.any?
             liked = true
         end
         if Like.where(:user => user, :post => post).any?
@@ -12,7 +12,7 @@ module AppHelper
         return liked
     end
     def TimeToMs(time)
-        return time.strftime('%Q')
+        time.strftime('%Q')
     end
     def SaveUser(user)
         suppress(StandardError) do
@@ -20,7 +20,7 @@ module AppHelper
         end
     end
     def CleanText(str)
-        return str.gsub "\n", "<br>"
+        str.gsub "\n", "<br>"
     end
 
 end

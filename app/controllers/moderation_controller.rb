@@ -7,7 +7,7 @@ class ModerationController < ApplicationController
 
     def is_mod
         @user = User.where(:hash => cookies[:hash]).first
-        if !@user.admin
+        unless @user.admin
             redirect_to action: :no_content, controller: :app
         end
     end

@@ -2,16 +2,16 @@ module ModerationHelper
     def FirstFive(str)
         split = str.split
         news = ""
-        for i in 1..split.length
+        (1..split.length).each { |i|
             if i <= 5
-                news += split[i-1] + " "
+                news += split[i - 1] + " "
             else
                 break
             end
-        end
+        }
         if split.length > 5
             news += "..."
         end
-        return news
+        news
     end
 end

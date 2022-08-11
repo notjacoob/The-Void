@@ -1,7 +1,7 @@
 // Place all the styles related to the App controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-:root {
+body {
     background-color: black;
     background-image: url("home-bg.jpg");
     overflow:scroll;
@@ -21,7 +21,6 @@
   margin: 0;
   //max-width: 8vw;
   height: 3em;
-  width: 5em;
   outline: none;
   overflow: hidden;
   padding: 9px 20px 8px;
@@ -146,7 +145,7 @@
     width: 2.5em;
     height: 1.5em;
     align-items: center;
-    padding: 0px;
+    padding: 0;
 }
 .m-top {
   margin-top: 4em;
@@ -169,7 +168,7 @@
     flex-direction: row;
     gap: 0.3rem;
     position: fixed;
-    top:0px;
+    top:0;
     margin-left: 0.1%;
     margin-top: 0.25%;
 }
@@ -188,7 +187,6 @@
     min-width: 45vw;
     max-width: 80vw;
     min-height: 48vw;
-    overflow-x: auto;
     overflow:scroll;
     background-color: black;
     border-radius: 25px;
