@@ -63,6 +63,7 @@ class AppController < ApplicationController
         if (@user.admin && params[:mod_override] == 1) || params[:content].split.size > 5
           # do profanity check here (holy any slur, 25%+ profanity density)
           @post = Post.create(content: CleanText(sanitize(params[:content])), user: @user, views: 0)
+          @post.image.attach(params[:image])
           @user.last_post = DateTime.now
           SaveUser(@user)
           redirect_to action: :view_post, id: @post.id
