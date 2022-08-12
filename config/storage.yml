@@ -32,3 +32,15 @@ local:
 #   service: Mirror
 #   primary: local
 #   mirrors: [ amazon, google, microsoft ]
+
+google:
+  service: GCS
+  project: the-void-rails
+  credentials: <%= ENV['GOOGLE_APPLICATION_CREDENTIALS'] %>
+  bucket: "the-void-post-images"
+
+google_dev:
+  service: GCS
+  project: the-void-rails
+  credentials: <%= Rails.root.join("config/secrets/the-void-rails.json") %>
+  bucket: "the-void-post-images"
