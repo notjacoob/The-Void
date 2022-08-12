@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/time-limit', to: 'app#time_limit'
   get '/banned', to: 'app#banned'
   get '/greater-5', to: 'app#greater_5'
+  get '/file-size', to: 'app#file_size'
 
   if Rails.env.development?
     get '/set-admin/:hash', to: "moderation#set_admin"

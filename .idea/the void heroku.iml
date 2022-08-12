@@ -32,6 +32,7 @@
     <orderEntry type="library" scope="PROVIDED" name="actionpack (v6.1.6.1, ruby-3.0.2-p107) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="actiontext (v6.1.6.1, ruby-3.0.2-p107) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="actionview (v6.1.6.1, ruby-3.0.2-p107) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="active_storage_validations (v0.9.8, ruby-3.0.2-p107) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="activejob (v6.1.6.1, ruby-3.0.2-p107) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="activemodel (v6.1.6.1, ruby-3.0.2-p107) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="activerecord (v6.1.6.1, ruby-3.0.2-p107) [gem]" level="application" />

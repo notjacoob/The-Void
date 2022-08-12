@@ -28,6 +28,8 @@ gem 'jbuilder', '~> 2.7'
 
 gem 'google-cloud-storage'
 
+gem 'active_storage_validations'
+
 gem 'jquery-rails'
 
 # Reduces boot times through caching; required in config/boot.rb

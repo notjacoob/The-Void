@@ -57,6 +57,8 @@ class AppController < ApplicationController
       redirect_to action: :no_content
     end
   end
+  def file_size
+  end
   def create_post_post
     @user = User.where(:hash => cookies[:hash]).first
       if (@user.admin && params[:mod_override] == 1) || (DateTime.now.to_i - @user.last_post.to_i >= 60)
@@ -64,9 +66,13 @@ class AppController < ApplicationController
           # do profanity check here (holy any slur, 25%+ profanity density)
           @post = Post.create(content: CleanText(sanitize(params[:content])), user: @user, views: 0)
           @post.image.attach(params[:image])
-          @user.last_post = DateTime.now
-          SaveUser(@user)
-          redirect_to action: :view_post, id: @post.id
+          if !@post.valid?
+            redirect_to action: :file_size
+          else
+            @user.last_post = DateTime.now
+            SaveUser(@user)
+            redirect_to action: :view_post, id: @post.id
+          end
         else
           redirect_to action: :greater_5
         end
