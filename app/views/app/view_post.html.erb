@@ -15,7 +15,7 @@
     <div id="post">
         <h1 id="post-content"><%= @post.content.html_safe %></h1>
         <% if @post.image.attached? %>
-          <%= image_tag(@post.image) %>
+          <%= image_tag(@post.image, {id: "post_img"}) %>
         <% end %>
     </div>
 </div>

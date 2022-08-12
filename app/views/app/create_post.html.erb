@@ -1,9 +1,10 @@
-
+<%= javascript_pack_tag 'index' %>
 <%= form_with url: "/create", method: :post do |form| %>
 <div id="navbar">
     <%= render 'navbar' %>
     <%= form.submit "Post", {class: "nav-home-btn", id: "nav-view-btn", title: "Post"} %>
     <%= form.file_field :image, {accept: 'image/png,image/gif,image/jpeg', class: "nav-home-btn", id: "nav-upload-btn"} %>
+    <p id="default-txt">No file uploaded</p>
     <%= form.check_box :mod_override, style: "visibility: #{@user.admin ? "visible" : "hidden"};", title: "Mod override" %> <br>
 </div>
 <div class="m-top" id="grid">

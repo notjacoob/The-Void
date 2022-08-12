@@ -119,6 +119,23 @@ body {
   outline: 0;
 }
 
+#post_img {
+  max-height: 50em;
+  max-width: 80em;
+  padding-bottom: 3em;
+}
+
+#default-txt {
+  font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+  color:white;
+  margin-top:0.07em;
+  margin-left:0.3em;
+}
+
+#mod_override {
+  margin-top:-12px;
+}
+
 .nav-home-btn:focus {
   border-color: #485fc7;
   outline: 0;

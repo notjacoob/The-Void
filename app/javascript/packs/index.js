@@ -1,19 +1,28 @@
 $(document).on('turbolinks:load', () => {
-
+    const cookiesDisclaimer = $("#cookies-disclaimer")
     if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|OperaMini/i.test(navigator.userAgent)) {
         $("#cookies-popup-box").css("opacity", "0")
-        $("#cookies-disclaimer").on("mouseover", () => {
+        cookiesDisclaimer.on("mouseover", () => {
             $("#cookies-popup-box").css("opacity", "100")
         })
-        $("#cookies-disclaimer").on("mouseout", () => {
+        cookiesDisclaimer.on("mouseout", () => {
             $("#cookies-popup-box").css("opacity", "0")
         })
     }
 
-    $("#cookies-disclaimer").on("click", () => {
+    cookiesDisclaimer.on("click", () => {
         document.cookie = "cookiesAllowed=true; expires=Fri, 31 Dec 9999 23:59:59 GMT";
     })
 
+    setInterval(() => {
+        const uploadBtn = $("#nav-upload-btn")
+        if (uploadBtn.length) {
+            if (uploadBtn.val() !== "") {
+                const txt = uploadBtn.val().split("\\")
+                $("#default-txt").text(txt[txt.length-1])
+            }
+        }
+    }, 100)
 
 })
 
