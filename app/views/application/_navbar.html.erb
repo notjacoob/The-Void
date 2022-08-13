@@ -1,4 +1,5 @@
 <%= link_to image_tag("home-icon.svg.png", {id: "nav-home-btn-img"}), { action: :index, controller: :app }, {method: :get, class: 'nav-home-btn', :title => "Home"} %>
+<%= link_to image_tag("user-icon.png", {id: "nav-user-btn-img"}), { action: :mod_view_uid, controller: :moderation, id: @user.id }, {method: :get, class: 'nav-home-btn', :title => "View your posts"} %>
 <% if @user.admin %>
     <%= link_to image_tag("gear-icon.webp", {id: "nav-gear-btn-img"}), {action: :mod_view, controller: :moderation }, {method: :get, class: 'nav-home-btn', :title => "Mod view"} %>
 <% end %>

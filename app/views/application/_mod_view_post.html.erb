@@ -10,9 +10,14 @@
 <td>
     <%= post.views %>
 </td>
-<td>
+<% if post.user.admin %>
+  <td>
     <%= render 'admin_bar', user: post.user, post: post, links: false, modview: true %>
-</td>
+  </td>
+<% else %>
+  <td></td>
+<% end %>
+
 <td>
   <%= post.user.id %>
 </td>
