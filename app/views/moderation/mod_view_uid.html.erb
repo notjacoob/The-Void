@@ -1,12 +1,9 @@
 <div id="navbar">
-    <%= render 'navbar' %>
+  <%= render 'navbar' %>
+  <% if @user.admin %>
     <%= button_to "All", { action: :mod_view, controller: :moderation }, {method: :get, class: 'nav-home-btn nav-home-btn-text', id: 'nav-view-btn'} %>
     <%= button_to "Held", { action: :mod_view_held, controller: :moderation }, {method: :get, class: 'nav-home-btn nav-home-btn-text', id: 'nav-view-btn'} %>
-    <%= form_with url: "/view-posts/uid", method: :get do |f| %>
-      <%= f.text_field :id %>
-      <%= f.submit "Search" %>
-    <% end %>
+<% end %>
 </div>
 
 <%= render 'mod_view_table', posts: @posts %>
-

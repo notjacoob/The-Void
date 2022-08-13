@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   post "/delete", to: "moderation#delete_post_post"
   get '/view-posts', to: 'moderation#mod_view'
   get '/view-posts/held', to: 'moderation#mod_view_held'
+  get '/view-posts/uid', to: 'moderation#mod_view_uid'
   post '/approve-post', to: 'moderation#approve_post_post'
   post '/deny-post', to: 'moderation#deny_post_post'
   post '/hold-for-review', to: 'moderation#hold_post_post'

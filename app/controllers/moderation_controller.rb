@@ -3,7 +3,7 @@ class ModerationController < ApplicationController
     include ModerationHelper
 
     before_action :verify_user
-    before_action :is_mod, except: [:set_admin]
+    before_action :is_mod, except: [:set_admin, :mod_view_uid]
 
     def is_mod
         @user = User.where(:hash => cookies[:hash]).first
@@ -66,6 +66,17 @@ class ModerationController < ApplicationController
     def mod_view
         @posts = Post.where(:held => false)
     end
+
+    def mod_view_uid
+      @user = User.where(:hash => cookies[:hash]).first
+      # puts "AAAAA #{@user.id.class} #{params[:id].class}"
+      if @user.admin || (@user.id == params[:id].to_i)
+        @posts = Post.where(user_id: params[:id])
+      else
+        redirect_to controller: "app", action: "no_content"
+      end
+    end
+
     def mod_view_held
         @posts = Post.where(:held => true)
     end
