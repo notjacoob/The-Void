@@ -2,11 +2,11 @@
 <div id='navbar'>
     <%= render 'navbar' %>
     <% if HasUserLiked() %>
-        <%= link_to image_tag("like-icon.png", {id: "nav-home-btn-img"}), { action: :like_post, :id => @post.id },  {method: :post, disabled: HasUserLiked(), class: "nav-home-btn", style: "background-color:#344feb;", title: "#{@post.likes.count} likes"} %>
+        <%= link_to image_tag("like-icon.png", { id: "nav-home-btn-img", class: "exp-img"}) + tag.p(" like", class:"btn-txt"), { action: :like_post, :id => @post.id }, { method: :post, disabled: HasUserLiked(), class: "nav-home-btn exp", style: "background-color:#344feb;", title: "#{@post.likes.count} likes", id: "exp", style:"padding-left:1.6em;"} %>
     <% else %>
-        <%= link_to image_tag("like-icon.png", {id: "nav-home-btn-img"}), { action: :like_post, :id => @post.id },  {method: :post, disabled: HasUserLiked(), class: "nav-home-btn", title: "#{@post.likes.count} likes"} %>
+    <%= link_to tag.div + image_tag("like-icon.png", { id: "nav-home-btn-img", class: "exp-img"}) + tag.p(" like", class:"btn-txt") + tag.div, { action: :like_post, :id => @post.id },  {method: :post, disabled: HasUserLiked(), class: "nav-home-btn exp", title: "#{@post.likes.count} likes", id: "exp", style:"padding-left:1.6em;"} %>
     <% end %>
-    <%= link_to image_tag("arrow-r.png", {id: "nav-home-btn-img"}), { action: :find_post }, {method: :get, class:"nav-home-btn", title: "Next post"}%>
+    <%= link_to image_tag("arrow-r.png", {id: "nav-home-btn-img", class: "exp-img"}) + tag.p(" next", class:"btn-txt"), { action: :find_post }, {method: :get, class:"nav-home-btn exp", title: "Next post", id: "exp", style:"padding-left:2em;"}%>
     <% if @user.admin %>
         <%= render 'admin_bar', user: @user, post: @post, links: false, modview: false %>
     <% end %>

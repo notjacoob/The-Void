@@ -70,6 +70,23 @@ body {
   white-space: nowrap;
 }
 
+.exp-img {
+  padding-top: 0.1em;
+}
+
+.exp {
+  text-decoration: none;
+  gap: 0.1em;
+  padding-left: 2.4em;
+  padding-bottom: 0.1em;
+  transition: width 500ms, padding-left 250ms;
+}
+.btn-txt {
+  font-size: 0.9em;
+  font-weight: bold;
+  transition: opacity 250ms;
+}
+
 #popup {
   color: white;
 }
@@ -183,7 +200,7 @@ body {
 #nav-home-btn-img {
     text-align: center;
     width: 0.7rem;
-    height: 0.7rem;
+    height: 0.8rem;
 }
 #nav-gear-btn-img {
     text-align: center;

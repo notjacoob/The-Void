@@ -7,6 +7,11 @@ class AppController < ApplicationController
   before_action :verify_user, except: [:no_content]
   before_action :is_banned, except: [:banned]
 
+  # TODO mod checklist in navbar on post creation
+  # TODO expand buttons with text on hover
+  # TODO changelog/pinned menu
+  # TODO link support (?)
+
   def first_time_visit
     if cookies[:first_visit] != "1"
       cookies.permanent[:first_visit] = 1
