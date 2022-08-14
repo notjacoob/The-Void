@@ -1,0 +1,52 @@
+.dropdown-checklist {
+  display: inline-block;
+  background-color: #e0e0e0;
+  border: 5px;
+  font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.dropdown-checklist .anchor {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  padding: 5px 50px 5px 10px;
+  border: 1px solid #ccc;
+}
+
+.dropdown-checklist .anchor:after {
+  position: absolute;
+  content: "";
+  border-left: 2px solid black;
+  border-top: 2px solid black;
+  padding: 5px;
+  right: 10px;
+  top: 20%;
+  -moz-transform: rotate(-135deg);
+  -ms-transform: rotate(-135deg);
+  -o-transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+  transform: rotate(-135deg);
+}
+
+.dropdown-checklist .anchor:active.after {
+  right:8px;
+  top:21%;
+}
+
+.dropdown-checklist ul.items {
+  padding:2px;
+  display:none;
+  margin:0;
+  border:1px solid #ccc;
+  border-top:none;
+}
+
+.dropdown-checklist ul.items li {
+  list-style: none;
+}
+.dropdown-checklist.visible .anchor {
+  color: #0094ff;
+}
+
+.dropdown-checklist.visible .items {
+  display: block;
+}

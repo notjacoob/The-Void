@@ -8,7 +8,6 @@ class AppController < ApplicationController
   before_action :is_banned, except: [:banned]
 
   # TODO mod checklist in navbar on post creation
-  # TODO expand buttons with text on hover
   # TODO changelog/pinned menu
   # TODO link support (?)
 
@@ -66,11 +65,17 @@ class AppController < ApplicationController
   end
   def create_post_post
     @user = User.where(:hash => cookies[:hash]).first
-      if (@user.admin && params[:mod_override] == 1) || (DateTime.now.to_i - @user.last_post.to_i >= 30)
-        if (@user.admin && params[:mod_override] == 1) || params[:content].split.size >= 3
+    word_override = params[:word_override] == "1"&& @user.admin
+    time_override = params[:time_override] == "1"&& @user.admin
+    mod_marker = (params[:mod_marker] == "1" || params[:changelog] == "1") && @user.admin
+    changelog = params[:changelog] == "1" && @user.admin
+    if (time_override) || (DateTime.now.to_i - @user.last_post.to_i >= 30)
+        if (word_override) || params[:content].split.size >= 3
           # do profanity check here (hold any slur, 25%+ profanity density)
-          @post = Post.create(content: CleanText(sanitize(params[:content])), user: @user, views: 0)
-          @post.image.attach(params[:image])
+          @post = Post.create(content: CleanText(sanitize(params[:content])), user: @user, views: 0, mod: mod_marker, changelog: changelog)
+          if params[:image]
+            @post.image.attach(params[:image])
+          end
           if !@post.valid?
             redirect_to action: :file_size
           else
@@ -92,10 +97,14 @@ class AppController < ApplicationController
     begin
       @user = User.where(:hash => cookies[:hash]).first
       @post = Post.find(params[:id])
-      if !@post.held || @post.user == @user
-        @likes = Like.where(:post => @post).count
-        @post.views = @post.views + 1
-        @post.save
+      if !@post.changelog
+        if !@post.held || @post.user == @user
+          @likes = Like.where(:post => @post).count
+          @post.views = @post.views + 1
+          @post.save
+        else
+          redirect_to action: :no_content
+        end
       else
         redirect_to action: :no_content
       end

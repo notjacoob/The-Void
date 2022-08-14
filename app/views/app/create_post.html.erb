@@ -1,11 +1,22 @@
 <%= javascript_pack_tag 'index' %>
+<%= stylesheet_link_tag 'create_post' %>
 <%= form_with url: "/create", method: :post do |form| %>
 <div id="navbar">
     <%= render 'navbar' %>
     <%= form.submit "Post", {class: "nav-home-btn", id: "nav-view-btn", title: "Post"} %>
     <%= form.file_field :image, {accept: 'image/png,image/gif,image/jpeg', class: "nav-home-btn", id: "nav-upload-btn"} %>
     <p id="default-txt">No file uploaded</p>
-    <%= form.check_box :mod_override, style: "visibility: #{@user.admin ? "visible" : "hidden"};", title: "Mod override" %> <br>
+  <% if @user.admin %>
+    <div id="mod-list" class="dropdown-checklist" tabindex="100">
+      <span class="anchor">Mod Options</span>
+      <ul class="items">
+        <li><%= form.check_box :words_override, title: "Word limit" %> Word limit</li>
+        <li><%= form.check_box :time_override, title: "Time limit" %> Time limit</li>
+        <li><%= form.check_box :mod_marker, title: "Mod marker" %> Mod marker</li>
+        <li><%= form.check_box :changelog, title: "Changelog" %> Changelog</li>
+      </ul>
+    </div>
+  <% end %>
 </div>
 <div class="m-top" id="grid">
     <%= form.text_area :content %>

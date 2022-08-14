@@ -45,5 +45,18 @@ $(document).on('turbolinks:load', () => {
             $(e).css("opacity", "0")
         })
     })
+
+    const checklist = document.getElementById("mod-list")
+    if (checklist) {
+        checklist.getElementsByClassName('anchor')[0].onclick = (e) => {
+            if (checklist.classList.contains("visible")) {
+                checklist.classList.remove("visible")
+            } else {
+                checklist.classList.add('visible')
+            }
+        }
+    }
+
+
 })
 

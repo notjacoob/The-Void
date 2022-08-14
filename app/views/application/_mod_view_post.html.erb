@@ -1,5 +1,5 @@
 <td>
-    <%= button_to "View",  { action: :view_post, controller: :app, id: post.id }, {method: :get, class: 'nav-home-btn', id: 'nav-view-btn' }%>
+    <%= button_to "View",  { action: :view_post, controller: :app, id: post.id }, {method: :get, class: 'nav-home-btn', id: 'nav-view-btn', title: post.inspect }%>
 </td>
 <td>
     <%= FirstFive(post.content) %>
