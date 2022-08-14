@@ -2,10 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 body {
-    background-color: black;
-    background-image: url("home-bg.jpg");
-    overflow:scroll;
+  background-color: black;
+  background-image: url("home-bg.jpg");
+  overflow: scroll;
 }
+
 .homepage-button {
   background-color: #222;
   border-radius: 4px;
@@ -14,7 +15,7 @@ body {
   color: #fff;
   cursor: pointer;
   display: inline-block;
-  font-family: "Farfetch Basis","Helvetica Neue",Arial,sans-serif;
+  font-family: "Farfetch Basis", "Helvetica Neue", Arial, sans-serif;
   font-size: 16px;
   font-weight: 700;
   line-height: 1.5;
@@ -32,18 +33,21 @@ body {
   touch-action: manipulation;
   width: 100%;
 }
+
 #nav-view-btn {
   font-weight: bold;
   font-size: 0.8rem;
   height: 1.88em;
   width: 3.5em;
 }
+
 #nav-upload-btn {
   font-weight: bold;
   font-size: 0.8rem;
   height: 1.88em;
   width: 5.3em;
 }
+
 .nav-home-btn {
   align-items: center;
   appearance: none;
@@ -54,15 +58,15 @@ body {
   box-sizing: border-box;
   color: #363636;
   cursor: pointer;
-  display: inline-flex;
-  font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+  display: block;
+  justify-content: center;
+  text-align: center;
+  font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 1rem;
   height: 2.5em;
-  justify-content: center;
   line-height: 1.5;
   padding: calc(.5em - 1px) 1em;
   position: relative;
-  text-align: center;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
@@ -70,19 +74,28 @@ body {
   white-space: nowrap;
 }
 
+.exp-img, .btn-txt {
+  grid-column: 1;
+  grid-row: 1;
+}
+
 .exp-img {
-  padding-top: 0.1em;
+  //padding-top: 0.1em;
+  transition: opacity 250ms;
 }
 
 .exp {
   text-decoration: none;
-  gap: 0.1em;
-  padding-left: 2.4em;
-  padding-bottom: 0.1em;
+  //padding-left: 2.4em;
+  //padding-bottom: 0.1em;
   transition: width 500ms, padding-left 250ms;
 }
+
 .btn-txt {
+  position: absolute;
+  top: -1.05em;
   font-size: 0.9em;
+  color: black;
   font-weight: bold;
   transition: opacity 250ms;
 }
@@ -104,6 +117,7 @@ body {
 
 #nav-user-btn-img {
   text-align: center;
+  padding-top: 0.165em;
   width: 1.1rem;
   height: 1.1rem;
 }
@@ -118,7 +132,7 @@ body {
 #cookies-popup {
   color: black;
   padding-left: 0.5em;
-  font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   min-width: 20vw;
 }
 
@@ -149,14 +163,14 @@ body {
 }
 
 #default-txt {
-  font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
-  color:white;
-  margin-top:0.07em;
-  margin-left:0.3em;
+  font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: white;
+  margin-top: 0.07em;
+  margin-left: 0.3em;
 }
 
 #mod_override {
-  margin-top:-12px;
+  margin-top: -12px;
 }
 
 .nav-home-btn:focus {
@@ -173,75 +187,80 @@ body {
 }
 
 #f-button {
-    margin-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 #nav-buttons {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .homepage-button:hover,
 .homepage-button:focus {
   opacity: .75;
 }
+
 .nav-home-btn {
-    width: 2.5em;
-    height: 1.5em;
-    align-items: center;
-    padding: 0;
+  width: 2.5em;
+  height: 1.5em;
+  align-items: center;
+  padding: 0;
 }
+
 .m-top {
   margin-top: 4em;
   margin-bottom: 2em;
 }
+
 #nav-home-btn-img {
-    text-align: center;
-    width: 0.7rem;
-    height: 0.8rem;
+  text-align: center;
+  width: 0.7rem;
+  height: 0.8rem;
 }
+
 #nav-gear-btn-img {
-    text-align: center;
-    width: 1.1rem;
-    height: 1.1rem;
+  text-align: center;
+  width: 1.1rem;
+  height: 1.1rem;
+  padding-top: 0.165em;
 }
 
 #navbar {
-    z-index: 2;
-    display: flex;
-    flex-direction: row;
-    gap: 0.3rem;
-    position: fixed;
-    top:0;
-    margin-left: 0.1%;
-    margin-top: 0.25%;
+  z-index: 2;
+  display: flex;
+  flex-direction: row;
+  gap: 0.3rem;
+  position: fixed;
+  top: 0;
+  margin-left: 0.1%;
+  margin-top: 0.25%;
 }
 
 #grid {
   z-index: 1;
-  display:grid;
-  place-items:center;
+  display: grid;
+  place-items: center;
 }
 
 #post {
-    display:grid;
-    place-items:center;
-    padding-right: 5em;
-    padding-left: 5em;
-    min-width: 45vw;
-    max-width: 80vw;
-    min-height: 48vw;
-    overflow:scroll;
-    background-color: black;
-    border-radius: 25px;
-    filter: drop-shadow(0px 0px 15px white);
-    align-items: center;
-    margin-top: 2em;
-    margin-bottom: 2em;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+  display: grid;
+  place-items: center;
+  padding-right: 5em;
+  padding-left: 5em;
+  min-width: 45vw;
+  max-width: 80vw;
+  min-height: 48vw;
+  overflow: scroll;
+  background-color: black;
+  border-radius: 25px;
+  filter: drop-shadow(0px 0px 15px white);
+  align-items: center;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 #post::-webkit-scrollbar {
@@ -249,8 +268,8 @@ body {
 }
 
 #post-content {
-    font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
-    color: white;
+  font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: white;
 }
 
 textarea {
@@ -263,8 +282,8 @@ textarea {
   border-radius: 4px;
   color: white;
   background-color: #0d0d0d;
-  font-size:16px;
-  resize:none;
+  font-size: 16px;
+  resize: none;
 }
 
 $black: #2d3137;
@@ -305,7 +324,7 @@ $border-radius: 25px;
     border-radius: $border-radius;
     position: absolute;
     left: 0;
-    top:-2px;
+    top: -2px;
     width: 1rem;
     height: 1rem;
     background-color: lighten($black, 65%);
@@ -317,11 +336,13 @@ $border-radius: 25px;
     user-select: none;
   }
 }
+
 label.checkbox {
   @include checkbox($green)
 }
+
 .dialog {
   text-align: center;
-  font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
-  color:white;
+  font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: white;
 }

@@ -20,31 +20,29 @@ $(document).on('turbolinks:load', () => {
         if (uploadBtn.length) {
             if (uploadBtn.val() !== "") {
                 const txt = uploadBtn.val().split("\\")
-                $("#default-txt").text(txt[txt.length-1])
+                $("#default-txt").text(txt[txt.length - 1])
             }
         }
     }, 100)
 
     const exp = $(".exp")
-    console.log(exp)
 
-    let oldPadding=0
-
-    exp.on('mouseenter', e => {
-        oldPadding=$(e.target).css("padding-left")
-        $(e.target).css("padding-left", "0")
-        $(e.target).css("width", "3.5em")
+    exp.mouseenter(e => {
+        e.preventDefault()
+        Array.from(e.target.getElementsByClassName("exp-img")).forEach(e => {
+            $(e).css("opacity", "0")
+        })
         Array.from(e.target.getElementsByClassName("btn-txt")).forEach(e => {
             $(e).css("opacity", "100")
         })
     })
-        exp.on('mouseleave', e => {
-        $(e.target).css("padding-left", oldPadding)
-        $(e.target).css("width", "2.5em")
+    exp.mouseleave(e => {
+        e.preventDefault()
+        Array.from(e.target.getElementsByClassName("exp-img")).forEach(e => {
+            $(e).css("opacity", "100")
+        })
         Array.from(e.target.getElementsByClassName("btn-txt")).forEach(e => {
             $(e).css("opacity", "0")
-            $(e).css("padding-left", "0")
-            $(e).css("width", "3.5em")
         })
     })
 })

@@ -1,5 +1,5 @@
-<%= link_to image_tag("home-icon.svg.png", {id: "nav-home-btn-img", class: "exp-img"}) + tag.p(" home", class: "btn-txt"), { action: :index, controller: :app }, {method: :get, class: 'exp nav-home-btn', :title => "Home", style:"padding-left:2.4em;"} %>
-<%= link_to image_tag("user-icon.png", {id: "nav-user-btn-img"}), { action: :mod_view_uid, controller: :moderation, id: @user.id }, {method: :get, class: 'nav-home-btn', :title => "View your posts"} %>
+<%= link_to image_tag("home-icon.svg.png", {id: "nav-home-btn-img", class: "exp-img"}) + tag.p(" home", class: "btn-txt"), { action: :index, controller: :app }, {method: :get, class: 'exp nav-home-btn', :title => "Home"} %>
+<%= link_to image_tag("user-icon.png", {id: "nav-user-btn-img", class: "exp-img"}) + tag.p(" user", class: "btn-txt", style: "padding-left: 0.4em;"), { action: :mod_view_uid, controller: :moderation, id: @user.id }, {method: :get, class: 'exp nav-home-btn', :title => "View your posts"} %>
 <% if @user.admin %>
     <%= link_to image_tag("gear-icon.webp", {id: "nav-gear-btn-img"}), {action: :mod_view, controller: :moderation }, {method: :get, class: 'nav-home-btn', :title => "Mod view"} %>
 <% end %>
