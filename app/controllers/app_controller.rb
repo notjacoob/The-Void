@@ -7,8 +7,6 @@ class AppController < ApplicationController
   before_action :verify_user, except: [:no_content]
   before_action :is_banned, except: [:banned]
 
-  # TODO mod checklist in navbar on post creation
-  # TODO changelog/pinned menu
   # TODO link support (?)
 
   def first_time_visit
@@ -53,10 +51,10 @@ class AppController < ApplicationController
     @user = User.where(:hash => cookies[:hash]).first
   end
   def find_post
-    @ids = Post.pluck(:id)
-    @id = @ids.sample
-    if @id != nil
-      redirect_to action: :view_post, id: @ids.sample
+      @posts = Post.where(changelog: false, held: false)
+      @post = @posts.sample
+    if @post != nil
+      redirect_to action: :view_post, id: @post.id
     else
       redirect_to action: :no_content
     end
