@@ -10,6 +10,11 @@ Rails.application.routes.draw do
   get '/banned', to: 'app#banned'
   get '/greater-5', to: 'app#greater_5'
   get '/file-size', to: 'app#file_size'
+  get '/changelogs', to: 'app#changelogs'
+  get '/edit(:id)', to: 'moderation#edit'
+  post '/edit', to: 'moderation#edit_post'
+  get '/edit-error', to: 'app#edit_error'
+  get '/changelogs/:id', to: 'app#changelogs_scroll'
 
   if Rails.env.development?
     get '/set-admin/:hash', to: "moderation#set_admin"

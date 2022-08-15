@@ -1,0 +1,19 @@
+<%= javascript_pack_tag 'index' %>
+<script>
+    $(document).on("turbolinks:load", e => {
+        $("#edit-field").val("<%= @post.content.html_safe %>")
+    })
+</script>
+<%= stylesheet_link_tag 'create_post' %>
+<%= form_with url: "/edit", method: :post do |form| %>
+  <div id="navbar">
+    <%= render 'navbar' %>
+    <%= form.hidden_field :id, value: @post.id %>
+    <%= form.submit "Post", {class: "nav-home-btn", id: "nav-view-btn", title: "Post"} %>
+    <%= form.file_field :image, {accept: 'image/png,image/gif,image/jpeg', class: "nav-home-btn", id: "nav-upload-btn"} %>
+    <p id="default-txt">No file uploaded</p>
+  </div>
+  <div class="m-top" id="grid">
+    <%= form.text_area :content, {id: "edit-field"} %>
+  </div>
+<% end %>

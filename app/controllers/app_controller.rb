@@ -82,7 +82,11 @@ class AppController < ApplicationController
             @post.save
             @user.last_post = DateTime.now
             SaveUser(@user)
-            redirect_to action: :view_post, id: @post.id
+            if @post.changelog
+                redirect_to action: :changelogs
+            else
+                redirect_to action: :view_post, id: @post.id
+            end
           end
         else
           redirect_to action: :greater_5
@@ -132,5 +136,14 @@ class AppController < ApplicationController
     end
   end
   def greater_5
+  end
+  def changelogs
+      @posts = Post.where(changelog: true).sort_by(&:created_at).reverse
+      @scroll_to = "null"
+  end
+  def changelogs_scroll
+      @posts = Post.where(changelog: true).sort_by(&:created_at).reverse
+      @scroll_to = params[:id]
+      render "changelogs"
   end
 end

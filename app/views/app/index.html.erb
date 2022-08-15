@@ -7,6 +7,9 @@
     <%= button_to "Create post", { action: "create_post"}, { method: :get, class: "homepage-button", id: "f-button" }%>
     <%= button_to "Search for post", { action: "find_post" }, { method: :get, class: "homepage-button" }%>
 </div>
+<div class="changelog-container">
+  <%= link_to image_tag("changelog-icon.png", {id: "nav-home-btn-img"}), { action: "changelogs" }, {id: "changelog-btn", class: "nav-home-btn", title: "Changelogs"} %>
+</div>
 <% if cookies["cookiesAllowed"] != "true" %>
     <div id="info-buttons">
         <div id="cookies-popup-box">

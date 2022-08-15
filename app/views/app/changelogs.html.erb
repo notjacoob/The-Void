@@ -1,0 +1,36 @@
+<div id="navbar">
+  <%= render 'navbar' %>
+</div>
+<script>
+  $(document).on("turbolinks:load", () => {
+      const scrollTo = <%= @scroll_to %>
+      if (scrollTo) {
+          const doc = document.getElementsByClassName("post-" + scrollTo)
+          console.log(doc.item(0))
+          if(doc[0]) {
+              doc[0].scrollIntoView({
+                  behavior: 'auto',
+                  block: 'center',
+                  inline: 'center'
+              })
+          }
+      }
+  })
+
+</script>
+<div id="posts">
+  <% @posts.each do |p| %>
+    <div id="grid">
+      <div id="post" style="<%=p.mod ? "filter:drop-shadow(0px 0px 15px green);" : ""%>">
+        <h1 class="changelog-timestamp" ><%= p.created_at.to_s.split(":")[0] + ":" + p.created_at.to_s.split(":")[1]%></h1>
+        <% if @user.admin %>
+          <%= link_to image_tag("edit-icon.png", {id: "nav-home-btn-img"}), {action: "edit", controller: "moderation", pid: p.id}, {method: :get, id: "changelog-edit-btn", title: "Edit"} %>
+        <% end %>
+        <h1 id="post-content" class="post-<%= p.id %>"><%= p.content.html_safe %></h1>
+        <% if p.image.attached? %>
+          <%= image_tag(p.image, {id: "post_img"}) %>
+        <% end  %>
+      </div>
+    </div>
+  <% end %>
+</div>

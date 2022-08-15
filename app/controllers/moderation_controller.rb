@@ -90,4 +90,25 @@ class ModerationController < ApplicationController
         @post.save
         redirect_back(fallback_location: 'app#index')
     end
+    def edit_error
+    end
+    def edit
+        @post = Post.find(params[:pid])
+        unless @post.changelog
+            redirect_to controller: :app, action: :edit_error
+        end
+    end
+    def edit_post
+        @post = Post.find(params[:id])
+        if params[:image]
+            @post.image.attach(params[:image])
+        end
+        @post.content = params[:content]
+        @post.save
+        if @post.changelog
+            redirect_to action: :changelogs_scroll, controller: :app, id: @post.id
+        else
+            redirect_to action: :view_post, controller: :app, id: @post.id
+        end
+    end
 end
