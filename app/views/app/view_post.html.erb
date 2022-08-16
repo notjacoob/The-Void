@@ -9,7 +9,8 @@
 </div>
 <div id="grid">
     <div id="post" style="<%= @post.mod ? "filter:drop-shadow(0px 0px 15px green);" : ""%>">
-        <h1 id="post-content"><%= @post.content.html_safe %></h1>
+      <h1 class="changelog-timestamp" ><%= @post.created_at.to_s.split(" ")[0]%></h1>
+      <h1 id="post-content"><%= @post.content.html_safe %></h1>
         <% if @post.image.attached? %>
           <%= image_tag(@post.image, {id: "post_img"}) %>
         <% end %>
