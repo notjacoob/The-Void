@@ -1,7 +1,8 @@
 <%= javascript_pack_tag 'index' %>
 <script>
+    const regex = /<br\s*[\/]?>/gi;
     $(document).on("turbolinks:load", e => {
-        $("#edit-field").val("<%= @post.content.html_safe %>")
+        $("#edit-field").val(`<%= @post.content.html_safe %>`.replace(regex, ""))
     })
 </script>
 <%= stylesheet_link_tag 'create_post' %>
@@ -14,6 +15,6 @@
     <p id="default-txt">No file uploaded</p>
   </div>
   <div class="m-top" id="grid">
-    <%= form.text_area :content, {id: "edit-field"} %>
+    <%= form.text_area :content, {id: "edit-field", onload: "fieldLoad()"} %>
   </div>
 <% end %>

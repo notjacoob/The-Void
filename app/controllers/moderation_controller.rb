@@ -95,7 +95,7 @@ class ModerationController < ApplicationController
     def edit
         @post = Post.find(params[:pid])
         unless @post.changelog
-            redirect_to controller: :app, action: :edit_error
+            redirect_to action: :edit_error
         end
     end
     def edit_post
