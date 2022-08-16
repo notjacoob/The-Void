@@ -48,6 +48,33 @@ body {
   width: 5.3em;
 }
 
+.post-indicator {
+  position: absolute;
+  bottom: 0;
+  filter: invert(1);
+  opacity: 50%;
+  padding-bottom: 1em;
+  font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#post-likes-count {
+  left: 0;
+  display:flex;
+  align-items: center;
+  gap: 0.4em;
+  text-decoration: none;
+  padding-left: 1em;
+  padding-bottom: 0;
+}
+#post-views-count {
+  right: 0;
+  padding-right: 1em;
+}
+
+#post-like-img {
+  @extend #nav-home-btn-img;
+}
+
 #changelog-edit-btn {
   position: absolute;
   top: 1.7%;
@@ -248,6 +275,11 @@ body {
   text-align: center;
   width: 0.7rem;
   height: 0.8rem;
+}
+#post-views-img {
+  text-align: center;
+  width: 1em;
+  height: 0.8em;
 }
 
 #nav-gear-btn-img {

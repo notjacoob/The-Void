@@ -1,7 +1,7 @@
 <div id="content">
 <div id='navbar'>
     <%= render 'navbar' %>
-    <%= link_to image_tag("like-icon.png", { id: "nav-home-btn-img", class: "exp-img", style: "padding-bottom:0.05em;"}) + tag.p(" like", class:"btn-txt", style: "padding-left:0.5em;"), { action: :like_post, :id => @post.id }, { method: :post, disabled: HasUserLiked(), class: "nav-home-btn exp", title: "#{@post.likes.count} likes", id: "exp", style: HasUserLiked() ? "background-color:#344feb;" : ""} %>
+    <!-- <%= link_to image_tag("like-icon.png", { id: "nav-home-btn-img", class: "exp-img", style: "padding-bottom:0.05em;"}) + tag.p(" like", class:"btn-txt", style: "padding-left:0.5em;"), { action: :like_post, :id => @post.id }, { method: :post, disabled: HasUserLiked(), class: "nav-home-btn exp", title: "#{@post.likes.count} likes", id: "exp", style: HasUserLiked() ? "background-color:#344feb;" : ""} %> --!>
     <%= link_to image_tag("arrow-r.png", {id: "nav-home-btn-img", class: "exp-img"}) + tag.p(" next", class:"btn-txt", style: "padding-left:0.25em;"), { action: :find_post }, {method: :get, class:"nav-home-btn exp", title: "Next post", id: "exp"}%>
     <% if @user.admin %>
         <%= render 'admin_bar', user: @user, post: @post, links: false, modview: false %>
@@ -13,6 +13,8 @@
         <% if @post.image.attached? %>
           <%= image_tag(@post.image, {id: "post_img"}) %>
         <% end %>
+        <%= link_to image_tag("like-icon.png", {id: "post-like-img", style: HasUserLiked() ? "filter: invert(20%) sepia(92%) saturate(6642%) hue-rotate(357deg) brightness(89%) contrast(128%);" : ""}) + tag.p(" #{@post.likes.count}"), {action: "like_post", id: @post.id}, {id: "post-likes-count", class: "post-indicator", style: "color: #{HasUserLiked() ? "red" : "black"};", method: :post} %>
+        <span id="post-views-count" class="post-indicator" title="Views"><%= @post.views %> <%= image_tag("views-icon.png", {id: "post-views-img"}) %></span>
     </div>
 </div>
 </div>
